@@ -26,6 +26,8 @@ router.get("/signup", (req, res, next) => {
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const gender   = req.body.gender
+  const year_of_birth = req.body.year_of_birth
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
@@ -42,14 +44,18 @@ router.post("/signup", (req, res, next) => {
 
     const newUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      gender,
+      year_of_birth
     });
+
 
     newUser.save()
     .then(() => {
       res.redirect("/");
     })
     .catch(err => {
+      console.log(err)
       res.render("auth/signup", { message: "Something went wrong" });
     })
   });

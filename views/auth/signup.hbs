@@ -1,17 +1,33 @@
 <h2>Signup</h2>
 
+<p>Welcome to IronHeart</p>
+<p>First, we need some basic information about you in order to improve our diagnosis.</p>
+
 <form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
+  <label for="username">Username</label> <br>
   <input id="username" type="text" name="username" placeholder="JonSnow">
 
   <br><br>
 
-  <label for="password">Password</label>
+  <label for="password">Password</label>  <br>
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
+
+  <br><br>
+
+  <label for="gender">Gender</label>  <br>
+  <select name="gender" id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  <br><br>
+
+  <label for="year_of_birth">Year of birth</label>  <br>
+  <input type="text" name="year_of_birth">
 
   <br><br>
 

@@ -5,4 +5,18 @@ body {
 a {
   color: #00B7FF; }
 
+.hero {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 126, 126, 0.3); }
+
+.hero h1 {
+  position: absolute;
+  top: 40vh;
+  left: 38vw; }
+
+.hero a {
+  color: black; }
+
 /*# sourceMappingURL=style.css.map */
