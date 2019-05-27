@@ -1,13 +1,15 @@
 <div class="symptoms-container">
   <div class="symptoms-col">
     <div class="symptoms-row">
+      <form action="/symptoms" method="POST">
       <label for="symptoms-options">Choose a symptom:</label>
-      <select name="" id="">
+      <select name="" id="" multiple size="5">
         {{#each symptoms}}
-        <option value="">--Symptoms Options--</option>
-        <option value="">{{this}}</option>
+        <option value="{{this}}">{{this}}</option>
         {{/each}}
         </select>
+        <button>Get diagnostic</button>
+      </form>
     </div>
   </div>
 </div>

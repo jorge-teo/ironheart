@@ -18,16 +18,16 @@ router.get('/', (req, res, next)=> {
 
   Symptoms.find()
     .then(allSymptoms =>{
-      const symptoms = [] 
-      allSymptoms.forEach(element => {
-        
-        console.log(symptoms)
-        symptoms.push(element.Name)}) 
-
-      res.render('symptoms', {symptoms});
-    
+      res.render('symptoms', {symptoms: allSymptoms.map(element => element.Name)});
     })
     .catch(error => console.log(error))
+
+    axios.post("/symptoms",(req, res) => {
+      console.log(req.body)
+      const symptoms = [...req.body.value]
+      console.log(symptoms)
+
+    })
 
   // axios.get(URI)
   // .then(response => console.log(response.data))
