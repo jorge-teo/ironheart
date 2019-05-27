@@ -17,17 +17,25 @@ router.get('/', (req, res, next)=> {
   const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[11]&gender=male&year_of_birth=1990&token=${token}&format=json&language=en-gb`
 
   Symptoms.find()
-    .then(allSymptoms =>{
-      res.render('symptoms', {symptoms: allSymptoms.map(element => element.Name)});
+    .then(allSymptoms => {
+
+      axios.post("/symptoms",(req, res) => {
+        console.log(req.body)
+        const symptoms = [...req.body.value]
+        console.log(symptoms)
+  
+      })
+
+      res.render('symptoms', { symptoms: allSymptoms.map(element => element.Name) });
     })
     .catch(error => console.log(error))
 
-    axios.post("/symptoms",(req, res) => {
-      console.log(req.body)
-      const symptoms = [...req.body.value]
-      console.log(symptoms)
-
-    })
+  // Symptoms.find()
+  //   .then(allSymptoms =>{
+  //     allSymptoms = allSymptoms.map(element => element.Name)
+  //     res.render('symptoms', { allSymptoms});
+  //   })
+  //   .catch(error => console.log(error))
 
   // axios.get(URI)
   // .then(response => console.log(response.data))
