@@ -89,4 +89,8 @@ app.use('/diagnostic', diagnostic)
 const profile = require('./routes/profile.routes')
 app.use('/profile', profile)
 
+
+const api = require('./routes/api/locations.routes')
+app.use('/symptoms', api)
+
 module.exports = app;

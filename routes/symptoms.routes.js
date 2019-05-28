@@ -13,6 +13,8 @@ router.get('/', (req, res, next)=> {
   .catch(error => console.log(error))
 })
 
+
+
 router.post("/", (req, res, next) => {
   if(typeof req.body.symptoms != "string"){
       const symptoms = [...req.body.symptoms]
@@ -24,7 +26,7 @@ router.post("/", (req, res, next) => {
         console.log(URI)
           axios.get(URI)
             .then(response => res.render('diagnostic', {data: response.data}))
-            .catch()
+            .catch(err => console.log(err))
         } )
         .catch()
 
@@ -34,12 +36,13 @@ router.post("/", (req, res, next) => {
       console.log("answer from DB",symptomsFound)
       const ids = symptomsFound[0].ID
       const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${ids}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
+
       console.log(URI)
         axios.get(URI)
-          .then(response => res.render('diagnosis', {data: response.data}))
-          .catch()
+          .then(response => res.render('diagnostic', {data: response.data}))
+          .catch(err => console.log(err))
       } )
-      .catch()
+      .catch(err => console.log(err))
   }
 })
   // Symptoms.find()
