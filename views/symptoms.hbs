@@ -2,19 +2,19 @@
   <div class="symptoms-col">
     <div class="symptoms-row">
       <form action="/symptoms" method="POST">
-      <label for="symptoms-options">Choose a symptom:</label>
-      <select name="" id="" multiple size="5">
+      <label for="symptoms">Choose a symptom:</label>
+      <select name="symptoms" id="symptoms" multiple size="5">
         {{#each symptoms}}
-<<<<<<< HEAD
-        <option value="{{this}}">{{this}}</option>
-=======
-          <option value="{{this}}">{{this}}</option>
->>>>>>> ef48c58202c3f65f534a24fe3c220b8a2dad09d5
+          <option class="option" value="{{this}}">{{this}}</option>
         {{/each}}
         </select>
         <button>Get diagnostic</button>
       </form>
     </div>
+
+    <section>
+
+    </section>
   </div>
 </div>
 

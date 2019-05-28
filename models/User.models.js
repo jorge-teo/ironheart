@@ -5,7 +5,8 @@ const userSchema = new Schema({
   username: String,
   password: String,
   gender: {type: String, enum: ["male", "female"]},
-  year_of_birth: String
+  year_of_birth: String,
+  history: [{name: String, date: String}]
 }, {
   timestamps: {
     createdAt: 'created_at',

@@ -1,0 +1,13 @@
+<h3>Description:</h3>
+<p>{{data.Description}}</p>
+
+<h5>Possible Symptoms</h5>
+<p>{{data.PossibleSymptoms}}</p>
+
+<h5>Suggested Treatment</h5>
+<p>{{data.TreatmentDescription}}</p>
+
+<form action="/diagnostic/details" method="POST">
+<p> Is this diagnostic correct?</p>
+<button name="diagnosis" value="{{data.Name}}"> Add it to your medical history!</button>
+</form>

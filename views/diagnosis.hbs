@@ -1,0 +1,12 @@
+
+{{#if data}}
+{{#each data}}
+  <h3>Diagnostic: <a href="/diagnostic/{{Issue.ID}}">{{Issue.Name}}</a></h3>
+  <p>Likelihood of an accurate diagnosis: {{Issue.Accuracy}}%</p>
+
+{{/each}}
+{{else}}
+
+  <p>No diagnostic</p>
+
+{{/if}}
