@@ -24,9 +24,9 @@ router.post("/", (req, res, next) => {
         console.log(URI)
           axios.get(URI)
             .then(response => res.render('diagnostic', {data: response.data}))
-            .catch()
+            .catch(error => console.log(error))
         } )
-        .catch()
+        .catch(error => console.log(error))
 
   } else {
     Symptoms.find({Name: req.body.symptoms})
@@ -36,10 +36,10 @@ router.post("/", (req, res, next) => {
       const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${ids}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
       console.log(URI)
         axios.get(URI)
-          .then(response => res.render('diagnosis', {data: response.data}))
-          .catch()
+          .then(response => res.render('diagnostic', {data: response.data}))
+          .catch(error => console.log(error))
       } )
-      .catch()
+      .catch(error => console.log(error))
   }
 })
   // Symptoms.find()

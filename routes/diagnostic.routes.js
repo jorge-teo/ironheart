@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
       .then(response => {
       
         console.log(response)
-        res.render('diagnosisDetail', {data: response.data})
+        res.render('diagnostic-details', {data: response.data})
       
       })
       .catch()
