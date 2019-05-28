@@ -22,4 +22,22 @@ a {
 .symptoms-container {
   margin-top: 100px; }
 
+.body {
+  position: relative;
+  margin: 20px auto;
+  width: 70%; }
+
+.bodyImg {
+  width: 100%;
+  height: auto; }
+
+.dot {
+  width: 30px;
+  height: auto; }
+
+.arm {
+  position: absolute;
+  left: 38%;
+  top: 35%; }
+
 /*# sourceMappingURL=style.css.map */
