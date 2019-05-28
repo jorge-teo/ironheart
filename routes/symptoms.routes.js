@@ -26,11 +26,7 @@ router.post("/", (req, res, next) => {
         console.log(URI)
           axios.get(URI)
             .then(response => res.render('diagnostic', {data: response.data}))
-<<<<<<< HEAD
             .catch(err => console.log(err))
-=======
-            .catch(error => console.log(error))
->>>>>>> 1d817604a8e3b92339527d2414e0a8e5a0b14f61
         } )
         .catch(error => console.log(error))
 
@@ -44,15 +40,9 @@ router.post("/", (req, res, next) => {
       console.log(URI)
         axios.get(URI)
           .then(response => res.render('diagnostic', {data: response.data}))
-<<<<<<< HEAD
           .catch(err => console.log(err))
       } )
       .catch(err => console.log(err))
-=======
-          .catch(error => console.log(error))
-      } )
-      .catch(error => console.log(error))
->>>>>>> 1d817604a8e3b92339527d2414e0a8e5a0b14f61
   }
 })
   // Symptoms.find()
