@@ -83,8 +83,8 @@ app.use('/auth', authRoutes);
 const symptoms = require('./routes/symptoms.routes');
 app.use('/symptoms', symptoms);
 
-const diagnosis = require('./routes/diagnosis.routes')
-app.use('/diagnostic', diagnosis)
+const diagnostic = require('./routes/diagnostic.routes')
+app.use('/diagnostic', diagnostic)
 
 const profile = require('./routes/profile.routes')
 app.use('/profile', profile)
