@@ -1,14 +1,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  new Vivus('caduceus', { duration: 200 }, () => document.getElementById("caduceus").classList.add('done'));
-
 
 
 document.body.onmousemove = (e) => {
   console.log(e.pageY)
   if(e.pageY <= 40) document.getElementById("nav").style.opacity = 1
-  if (e.pageY > 40) document.getElementById("nav").style.opacity = 0
+  if(e.pageY > 40) document.getElementById("nav").style.opacity = 0
 }
   
 const getSymptomsList = (id) => {
