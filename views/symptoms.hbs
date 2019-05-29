@@ -17,11 +17,16 @@
 
     </div>
     <section class="body">
-      {{!-- <div class="armdiv" id="arm">
-          <img src="/images/dot.png" alt="" class="dot arm">
-          <div name="arm" class="menu">PRUEBA</div>
-      </div> --}}
+      <div id="instructions"><p>Click any part of the body to indicate what are your symptoms.</p>
+       <div id="symptomsList">
+         <form action="/symptoms" method="POST" id="symptomsForm">
+          
+  
+          </form> 
+      </div>
+      </div>
 
+      <div>
         <div id="armsdiv" class="hidden arms"> Hello</div>
         <div id="abdomendiv" class="hidden abdomen"> Hello</div>
         <div id="chestdiv" class="hidden chest"> Hello</div>
@@ -35,18 +40,18 @@
 
         <img src="/images/bodyimg.png" usemap="#image-map">      
         <map name="image-map">
-            <area target="" alt="arms" title="arms" id="arms" coords="208,195,13" shape="circle">
-            <area target="" alt="abdomen" title="abdomen" id="abdomen" coords="261,240,11" shape="circle">
-            <area target="" alt="chest" title="chest" id="chest" coords="261,129,11" shape="circle">
-            <area target="" alt="head" title="head" id="head" coords="262,54,13" shape="circle">
-            <area target="" alt="legs" title="legs" id="legs" coords="285,358,11" shape="circle">
-            <area target="" alt="skin" title="skin" id="skin" coords="328,192,12" shape="circle">
+            <area target="" alt="arms" title="Arms" id="arms" coords="208,195,13" shape="circle">
+            <area target="" alt="abdomen" title="Abdomen" id="abdomen" coords="261,240,11" shape="circle">
+            <area target="" alt="chest" title="Chest" id="chest" coords="261,129,11" shape="circle">
+            <area target="" alt="head" title="Head" id="head" coords="262,54,13" shape="circle">
+            <area target="" alt="legs" title="Legs" id="legs" coords="285,358,11" shape="circle">
+            <area target="" alt="skin" title="Skin & others" id="skin" coords="328,192,12" shape="circle">
         </map>
-
+      </div>
     </section>
     
     <section >
-      <div class="symptomsList"></div>
+     
 
     </section>
   {{!-- </div>

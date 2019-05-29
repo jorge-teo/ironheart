@@ -16,35 +16,46 @@ router.get('/', (req, res, next)=> {
 
 
 router.post("/", (req, res, next) => {
-  if(typeof req.body.symptoms != "string"){
-      const symptoms = [...req.body.symptoms]
-      Symptoms.find({Name: symptoms})
-      .then( symptomsFound => {
-
-        const ids = symptomsFound.map( eachsymptoms=> eachsymptoms.ID)
-        const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${ids}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
+  
+        const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${Object.values(req.body)}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
         console.log(URI)
           axios.get(URI)
             .then(response => res.render('diagnostic', {data: response.data}))
             .catch(err => console.log(err))
         } )
-        .catch(error => console.log(error))
 
-  } else {
-    Symptoms.find({Name: req.body.symptoms})
-    .then( symptomsFound => {
-      console.log("answer from DB",symptomsFound)
-      const ids = symptomsFound[0].ID
-      const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${ids}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
 
-      console.log(URI)
-        axios.get(URI)
-          .then(response => res.render('diagnostic', {data: response.data}))
-          .catch(err => console.log(err))
-      } )
-      .catch(err => console.log(err))
-  }
-})
+
+
+//   if(typeof req.body.symptoms != "string"){
+//     const symptoms = [...req.body.symptoms]
+//       Symptoms.find({Name: symptoms})
+//       .then( symptomsFound => {
+
+//         const ids = symptomsFound.map( eachsymptoms=> eachsymptoms.ID)
+//         const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${ids}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
+//         console.log(URI)
+//           axios.get(URI)
+//             .then(response => res.render('diagnostic', {data: response.data}))
+//             .catch(err => console.log(err))
+//         } )
+//         .catch(error => console.log(error))
+
+//   } else {
+//     Symptoms.find({Name: req.body.symptoms})
+//     .then( symptomsFound => {
+//       console.log("answer from DB",symptomsFound)
+//       const ids = symptomsFound[0].ID
+//       const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${ids}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
+
+//       console.log(URI)
+//         axios.get(URI)
+//           .then(response => res.render('diagnostic', {data: response.data}))
+//           .catch(err => console.log(err))
+//       } )
+//       .catch(err => console.log(err))
+//   }
+// })
   // Symptoms.find()
   //   .then(allSymptoms =>{
   //     allSymptoms = allSymptoms.map(element => element.Name)

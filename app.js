@@ -90,7 +90,10 @@ const profile = require('./routes/profile.routes')
 app.use('/profile', profile)
 
 
-const api = require('./routes/api/locations.routes')
-app.use('/symptoms', api)
+const apiLocations = require('./routes/api/locations.routes')
+app.use('/api', apiLocations)
 
+
+const apiDiagnostic = require('./routes/api/expanded-symptoms.routes')
+app.use('/api', apiDiagnostic)
 module.exports = app;

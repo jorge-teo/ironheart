@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
-router.get('/', (req, res, next) => res.render('profile', req.user))
+router.get('/', ensureLoggedIn('/auth/login'),(req, res, next) => res.render('profile', req.user))
 
 module.exports = router;

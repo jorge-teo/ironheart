@@ -1,28 +1,56 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('IronGenerator JS imported successfully!')
-
+document.body.onmousemove = (e) => {
+  console.log(e.pageY)
+  if(e.pageY <= 10) {document.getElementById("nav").style.display = "initial"} else {document.getElementById("nav").style.display = "none"}
+}
   
+const getSymptomsList = (id) => {
+  
+  axios.get(`http://localhost:3000/api/getDiagnosis/${id}`)
+  .then( list => {
+
+    list.data.forEach( data => {
+
+      const option = document.createElement("input")
+      option.setAttribute("type", "checkbox")
+      option.setAttribute("value", `${data.ID}`)
+      option.setAttribute("name", `${data.Name}`)
+      const label = document.createElement("label")
+      label.setAttribute("for", `${data.Name}`)
+      label.innerHTML = data.Name
+      
+      document.getElementById("symptomsForm").append(label)
+      document.getElementById("symptomsForm").append(option)
+
+    })
+      const button = document.createElement("button")
+      button.innerHTML = 'Get diagnostic'
+      document.getElementById('symptomsForm').append(button)
+  })
+  .catch()
+}
   
   //ARMS
   document.getElementById("arms").onclick = (e) => {
-    axios.get("http://localhost:3000/symptoms/7")
+    axios.get("http://localhost:3000/api/7")
     .then( fullList => {
+      
       document.getElementById("armsdiv").innerHTML = ""
 
       
       fullList.data[0].expanded.forEach(element =>  {
-
         let parag = document.createElement("p")
         parag.innerHTML = element.Name
         parag.setAttribute("id",`${element.ID}`)
 
+        //LLAMADA A NUESTRA API BACK
         parag.onclick = () => {
-
-          axios.get("")
-
+          getSymptomsList(element.ID)
+           
         }
+
         
         document.getElementById("armsdiv").appendChild(parag) 
       })
@@ -45,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //ABDOMEN
   document.getElementById("abdomen").onclick = (e) => {
-    axios.get("http://localhost:3000/symptoms/16")
+    axios.get("http://localhost:3000/api/16")
       .then( fullList => {
         document.getElementById("abdomendiv").innerHTML = ""
 
@@ -54,7 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let parag = document.createElement("p")
         parag.innerHTML = element.Name
         parag.setAttribute("id",`${element.ID}`)
-        parag.onclick = () => alert(`${element.ID}`)
+        parag.onclick = () => {
+          getSymptomsList(element.ID)
+        }
         
         document.getElementById("abdomendiv").appendChild(parag) 
         })
@@ -75,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   document.getElementById("chest").onclick = (e) => {
-    axios.get("http://localhost:3000/symptoms/15")
+    axios.get("http://localhost:3000/api/15")
       .then( fullList => {
         document.getElementById("chestdiv").innerHTML = ""
           
@@ -84,7 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let parag = document.createElement("p")
         parag.innerHTML = element.Name
         parag.setAttribute("id",`${element.ID}`)
-        parag.onclick = () => alert(`${element.ID}`)
+        parag.onclick = () => {
+          getSymptomsList(element.ID)          
+        }
         
         document.getElementById("chestdiv").appendChild(parag) 
         
@@ -105,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //HEAD
 
   document.getElementById("head").onclick = (e) => {
-    axios.get("http://localhost:3000/symptoms/6")
+    axios.get("http://localhost:3000/api/6")
       .then( fullList => {
         document.getElementById("headdiv").innerHTML = ""
           
@@ -114,7 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
           let parag = document.createElement("p")
           parag.innerHTML = element.Name
           parag.setAttribute("id",`${element.ID}`)
-          parag.onclick = () => alert(`${element.ID}`)
+          parag.onclick = () => {
+            getSymptomsList(element.ID)          
+          }
           
           document.getElementById("headdiv").appendChild(parag) 
         })
@@ -133,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //LEGS
 
   document.getElementById("legs").onclick = (e) => {
-    axios.get("http://localhost:3000/symptoms/10")
+    axios.get("http://localhost:3000/api/10")
       .then( fullList => {
         document.getElementById("legsdiv").innerHTML = ""
           
@@ -142,7 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let parag = document.createElement("p")
         parag.innerHTML = element.Name
         parag.setAttribute("id",`${element.ID}`)
-        parag.onclick = () => alert(`${element.ID}`)
+        parag.onclick = () => {
+          getSymptomsList(element.ID)          
+        }
         
         document.getElementById("legsdiv").appendChild(parag) 
         })
@@ -162,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.getElementById("skin").onclick = (e) => {
-  axios.get("http://localhost:3000/symptoms/17")
+  axios.get("http://localhost:3000/api/17")
     .then( fullList => {
       document.getElementById("skindiv").innerHTML = ""
           
@@ -171,7 +207,10 @@ document.getElementById("skin").onclick = (e) => {
         let parag = document.createElement("p")
         parag.innerHTML = element.Name
         parag.setAttribute("id",`${element.ID}`)
-        parag.onclick = () => alert(`${element.ID}`)
+        parag.onclick = () => {
+          getSymptomsList(element.ID)
+          
+        }
         
         document.getElementById("skindiv").appendChild(parag) 
         })
@@ -188,3 +227,5 @@ document.getElementById("skindiv").onclick = (e) => {
 }
 
 }, false);
+
+// PETITION FROM CLIENT SIDE
