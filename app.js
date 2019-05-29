@@ -96,4 +96,16 @@ app.use('/api', apiLocations)
 
 const apiDiagnostic = require('./routes/api/expanded-symptoms.routes')
 app.use('/api', apiDiagnostic)
+
+
+const basicmap = require('./routes/basic-map.routes')
+app.use('/basicmap', basicmap)      
+
+// // default value for title local
+// app.locals.title = 'Google Maps | Express';
+
+// // routes middleware goes here
+// const index = require('./routes/restaurant.routes');
+// app.use('/restaurants', index);
+
 module.exports = app;
