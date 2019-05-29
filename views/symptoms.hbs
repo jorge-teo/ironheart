@@ -1,6 +1,8 @@
-<div class="symptoms-container">
+{{!-- <div class="symptoms-container">
   <div class="symptoms-col">
-    <div class="symptoms-row">
+   --}}
+{{!--   
+   <div class="symptoms-row">
       <form action="/symptoms" method="POST">
       <label for="symptoms">Choose a symptom:</label>
       <select name="symptoms" id="symptoms" multiple size="5">
@@ -9,7 +11,10 @@
         {{/each}}
         </select>
         <button>Get diagnostic</button>
-      </form>
+  
+      </form> --}}
+
+
     </div>
     <section class="body">
       {{!-- <div class="armdiv" id="arm">
@@ -17,17 +22,32 @@
           <div name="arm" class="menu">PRUEBA</div>
       </div> --}}
 
-        <img src="/images/bodyimg.png" usemap="#image-map">
+        <div id="armsdiv" class="hidden arms"> Hello</div>
+        <div id="abdomendiv" class="hidden abdomen"> Hello</div>
+        <div id="chestdiv" class="hidden chest"> Hello</div>
+        <div id="headdiv" class="hidden head"> Hello</div>
+        <div id="legsdiv" class="hidden legs"> Hello</div>
+        <div id="skindiv" class="hidden skin"> Hello</div>
 
-<map name="image-map">
-    <area target="" alt="arms" title="arms" href="/symptoms/7" coords="208,195,13" shape="circle">
-    <area target="" alt="abdomen" title="abdomen" href="/symptoms/16" coords="261,240,11" shape="circle">
-    <area target="" alt="chest" title="chest" href="/symptoms/15" coords="261,129,11" shape="circle">
-    <area target="" alt="head" title="head" href="/symptoms/6" coords="262,54,13" shape="circle">
-    <area target="" alt="legs" title="legs" href="/symptoms/10" coords="285,358,11" shape="circle">
-    <area target="" alt="skin" title="skin" href="/symptoms/17" coords="328,192,12" shape="circle">
-</map>
+
+
+
+
+        <img src="/images/bodyimg.png" usemap="#image-map">      
+        <map name="image-map">
+            <area target="" alt="arms" title="arms" id="arms" coords="208,195,13" shape="circle">
+            <area target="" alt="abdomen" title="abdomen" id="abdomen" coords="261,240,11" shape="circle">
+            <area target="" alt="chest" title="chest" id="chest" coords="261,129,11" shape="circle">
+            <area target="" alt="head" title="head" id="head" coords="262,54,13" shape="circle">
+            <area target="" alt="legs" title="legs" id="legs" coords="285,358,11" shape="circle">
+            <area target="" alt="skin" title="skin" id="skin" coords="328,192,12" shape="circle">
+        </map>
 
     </section>
-  </div>
-</div>
+    
+    <section >
+      <div class="symptomsList"></div>
+
+    </section>
+  {{!-- </div>
+</div> --}}

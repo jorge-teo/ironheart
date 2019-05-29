@@ -7,7 +7,7 @@ require("dotenv").config()
 
 const token = process.env.TOKEN
 
-// const URILocations = `https://healthservice.priaid.ch/body/locations/${req.params.id}?token=${token}&format=json&language=en-gb`
+ const URILocations = `https://healthservice.priaid.ch/symptoms/48/0?token=${token}&format=json&language=en-gb`
 
 router.get("/:id", (req, res, next) => {
 
@@ -19,7 +19,17 @@ router.get("/:id", (req, res, next) => {
     .catch(err => console.log(err))
   
   
-})  
+})
+
+router.get("/:id/list", (req, res, next) => {
+  
+  axios.get(URILocations)
+    .then( response => 
+      res.json(response)
+      )
+    .catch()
+
+})
 
 
 module.exports = router;
