@@ -62,7 +62,7 @@ window.onload = () => {
   new google.maps.Marker({
     map: myMap,
     position: elCasar,
-    title: 'Centro De Salud De El Casar'
+    title: 'Centro de Salud de El Casar'
   })
   new google.maps.Marker({
     map: myMap,
