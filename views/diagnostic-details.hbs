@@ -1,3 +1,6 @@
+<section class="body">
+
+
 <h3>Description:</h3>
 <p>{{data.Description}}</p>
 
@@ -9,5 +12,7 @@
 
 <form action="/diagnostic/details" method="POST">
 <p> Is this diagnostic correct?</p>
-<button name="diagnostic" value="{{data.Name}}"> Add it to your medical history!</button>
+<button id="favouriteButton" name="diagnostic" value="{{data.Name}}"> Add it to your medical history!</button><img id="heart" src="/images/heart.png" alt="heart icon">
 </form>
+
+</section>

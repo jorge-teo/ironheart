@@ -20,17 +20,19 @@ const getSymptomsList = (id) => {
       option.setAttribute("type", "checkbox")
       option.setAttribute("value", `${data.ID}`)
       option.setAttribute("name", `${data.Name}`)
+      option.setAttribute('class', 'col-md-6')
+
       const label = document.createElement("label")
       label.setAttribute("for", `${data.Name}`)
+      label.setAttribute('class', 'col-md-6')
       label.innerHTML = data.Name
-      
-      document.getElementById("symptomsForm").append(label)
-      document.getElementById("symptomsForm").append(option)
+      const li = document.createElement("li")
+      li.setAttribute('class', 'col-md-6')
+      li.append(label)
+      li.append(option)
+      document.getElementById("ulSymptoms").append(li)
 
     })
-      const button = document.createElement("button")
-      button.innerHTML = 'Get diagnostic'
-      document.getElementById('symptomsForm').append(button)
   })
   .catch()
 }
