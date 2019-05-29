@@ -8,12 +8,16 @@ a {
   color: #00B7FF;
   margin: 0 10px; }
 
-#caduceus image {
-  opacity: 0;
+#layer1 {
+  opacity: 1;
   transition: opacity .5s; }
 
-#caduceus .done image {
+#layer1 .done {
   opacity: 1; }
+
+#map {
+  height: 500px;
+  width: 100%; }
 
 nav {
   position: absolute;
