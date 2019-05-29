@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const axios = require("axios")
 const Symptoms = require("../models/Symptoms.models")
+const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn
 require("dotenv").config()
 
 //CONFIGURACION DE LA API
 const token = process.env.TOKEN
 // Petición GET de los SYMPTOM
-router.get('/', (req, res, next)=> {
+router.get('/', ensureLoggedIn("/auth/login"),(req, res, next)=> {
   Symptoms.find()
   .then(allSymptoms => res.render('symptoms', { symptoms: allSymptoms.map(element => element.Name)}) )
   .catch(error => console.log(error))

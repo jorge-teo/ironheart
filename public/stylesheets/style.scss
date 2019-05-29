@@ -1,6 +1,10 @@
+* {
+  font-family: 'Slabo 27px', serif;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 80px;
+  //font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -8,8 +12,38 @@ a {
   margin: 0 10px;
 }
 
+#caduceus image {
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+#caduceus .done image {
+  opacity: 1;
+}
+
+
+
 nav {
-  display: none;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: all 500ms;
+  height: 50px;
+  width: 100vw; 
+  background: rgb(70, 70, 70);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.shadow {
+  box-shadow : 100 100px black;
+
+}
+
+nav a {
+  margin: 0 15px;
+  display: inline-block;
+  margin: auto 0;
 }
 
 .hero {
@@ -30,12 +64,21 @@ nav {
 
 }
 
-.login {
-  margin: 50px 30%;
-  font-size: 1.4em;
+.login, .signup {
+  margin-left:  15%;
+  font-size: 1.2em;
 }
 
-.login input {
+.login label,.signup label {
+  display: flex;
+  margin: 10px 0;
+}
+
+.signup{
+  font-size: 1.2em;
+}
+
+.login input,.signup input {
   width: 30vw;
   display: inline-block;
 }
