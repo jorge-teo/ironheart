@@ -93,4 +93,14 @@ app.use('/profile', profile)
 const api = require('./routes/api/locations.routes')
 app.use('/symptoms', api)
 
+const basicmap = require('./routes/basic-map.routes')
+app.use('/basicmap', basicmap)      
+
+// // default value for title local
+// app.locals.title = 'Google Maps | Express';
+
+// // routes middleware goes here
+// const index = require('./routes/restaurant.routes');
+// app.use('/restaurants', index);
+
 module.exports = app;
