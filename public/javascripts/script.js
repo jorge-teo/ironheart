@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.body.onmousemove = (e) => {
   console.log(e.pageY)
-  if(e.pageY <= 40) document.getElementById("nav").style.opacity = 1
-  if(e.pageY > 40) document.getElementById("nav").style.opacity = 0
+  if(e.pageY <= 80) document.getElementById("nav").style.opacity = 1
+  if(e.pageY > 80) document.getElementById("nav").style.opacity = 0
 }
   
 const getSymptomsList = (id) => {
-  
-  axios.get(`https://heroheart.herokuapp.com/api/getDiagnosis/${id}`)
+
+  axios.get(`http://localhost:3000/api/getDiagnosis/${id}`)  
+  // axios.get(`https://heroheart.herokuapp.com/api/getDiagnosis/${id}`)
   .then( list => {
 
     list.data.forEach( data => {
@@ -38,7 +39,9 @@ const getSymptomsList = (id) => {
   
   //ARMS
   document.getElementById("arms").onclick = (e) => {
-    axios.get(`https://heroheart.herokuapp.com/api/7`)
+    
+    axios.get(`http://localhost:3000/api/7`)  
+    // axios.get(`https://heroheart.herokuapp.com/api/7`)
     .then( fullList => {
       
       document.getElementById("armsdiv").innerHTML = ""
@@ -77,7 +80,9 @@ const getSymptomsList = (id) => {
 
   //ABDOMEN
   document.getElementById("abdomen").onclick = (e) => {
-    axios.get(`https://heroheart.herokuapp.com/api/16`)
+    
+    axios.get(`http://localhost:3000/api/16`)  
+    // axios.get(`https://heroheart.herokuapp.com/api/16`)
       .then( fullList => {
         document.getElementById("abdomendiv").innerHTML = ""
 
@@ -109,7 +114,9 @@ const getSymptomsList = (id) => {
 
 
   document.getElementById("chest").onclick = (e) => {
-    axios.get(`https://heroheart.herokuapp.com/api/15`)
+    
+    axios.get(`http://localhost:3000/api/15`)  
+    // axios.get(`https://heroheart.herokuapp.com/api/15`)
       .then( fullList => {
         document.getElementById("chestdiv").innerHTML = ""
           
@@ -141,7 +148,9 @@ const getSymptomsList = (id) => {
 //HEAD
 
   document.getElementById("head").onclick = (e) => {
-    axios.get(`https://heroheart.herokuapp.com/api/6`)
+    
+    axios.get(`http://localhost:3000/api/6`)      
+    // axios.get(`https://heroheart.herokuapp.com/api/6`)
       .then( fullList => {
         document.getElementById("headdiv").innerHTML = ""
           
@@ -171,7 +180,9 @@ const getSymptomsList = (id) => {
 //LEGS
 
   document.getElementById("legs").onclick = (e) => {
-    axios.get(`https://heroheart.herokuapp.com/api/10`)
+
+    axios.get(`http://localhost:3000/api/10`)  
+    // axios.get(`https://heroheart.herokuapp.com/api/10`)
       .then( fullList => {
         document.getElementById("legsdiv").innerHTML = ""
           
@@ -202,6 +213,8 @@ const getSymptomsList = (id) => {
 
 
 document.getElementById("skin").onclick = (e) => {
+
+  axios.get(`http://localhost:3000/api/17`)
   axios.get(`https://heroheart.herokuapp.com/api/17`)
     .then( fullList => {
       document.getElementById("skindiv").innerHTML = ""

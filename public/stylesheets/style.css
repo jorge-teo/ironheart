@@ -1,5 +1,25 @@
 * {
-  font-family: 'Belleza', sans-serif; }
+  font-family: 'Belleza', sans-serif;
+  font-size: 1.1em; }
+
+button {
+  margin-left: 20%;
+  border: 1px solid #C2CBF4;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  font-weight: bold;
+  padding: 13px 25px;
+  text-align: center;
+  font-family: Helvetica, Arial, Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 24px;
+  text-shadow: 0px 1px 1px white;
+  transition: 300ms; }
+
+button:hover {
+  box-shadow: 0 0 6px 6px rgba(255, 255, 255, 0.8); }
 
 .heart-svg {
   display: inline-block;
@@ -49,15 +69,22 @@ a {
   opacity: 1; }
 
 #map {
-  height: 500px;
+  height: 83vh;
   width: 100%; }
+
+.mapForm {
+  padding-top: 10px;
+  display: block;
+  margin: 0 42%; }
+  .mapForm button {
+    margin-left: 10px; }
 
 nav {
   position: absolute;
   top: 0;
   opacity: 0;
   transition: all 500ms;
-  height: 50px;
+  height: 65px;
   width: 100vw;
   background: #464646;
   display: flex;
@@ -66,6 +93,9 @@ nav {
 
 .shadow {
   box-shadow: 100 100px black; }
+
+#top-arrow {
+  margin-top: -60px; }
 
 nav a {
   color: whie;
@@ -80,7 +110,8 @@ nav a {
   height: 100vh;
   background-image: linear-gradient(to left bottom, #bbf3ff, #a0e7fe, #88d9ff, #75cbff, #6abbff, #62acf8, #5d9df1, #5c8ee8, #4c7ed7, #3b6fc7, #2960b6, #1051a6); }
   .hero svg {
-    margin-top: 100px; }
+    margin-top: 25vh;
+    font-size: 20em; }
 
 .hero h1 {
   position: absolute;
@@ -92,6 +123,7 @@ nav a {
 
 .login, .signup {
   float: left;
+  margin-top: 7vh;
   margin-left: 10%;
   font-size: 1.2em;
   width: 30%; }
@@ -122,37 +154,39 @@ ul {
   text-align: left; }
 
 li {
+  font-size: 0.7em;
   padding: 5px 20px; }
 
 .profile {
   font-size: 1.2em; }
+  .profile ol li {
+    font-size: 1em; }
 
 .bodyContainer {
   display: flex; }
 
 .bodySection {
+  margin-left: 20%;
   display: flex;
   text-align: center;
   align-items: center;
-  height: 80vh; }
+  height: 80vh;
+  width: 40vw; }
 
 .body {
   margin: 20px 5vw;
-  position: relative; }
+  position: relative;
+  width: 100vw; }
 
 .bodyImg {
   position: relative;
-  width: 512px;
-  height: 512px;
+  width: 120%;
+  height: auto;
   align-items: center; }
 
 #instructions p {
   margin-left: 100px;
   width: 400px; }
-
-.bodyImg {
-  width: 100%;
-  height: auto; }
 
 .dot {
   width: 30px;
