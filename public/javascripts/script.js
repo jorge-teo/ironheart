@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
-
 document.body.onmousemove = (e) => {
   console.log(e.pageY)
   if(e.pageY <= 40) document.getElementById("nav").style.opacity = 1
@@ -47,7 +46,8 @@ const getSymptomsList = (id) => {
       
       fullList.data[0].expanded.forEach(element =>  {
         let parag = document.createElement("p")
-        parag.innerHTML = element.Name
+
+        parag.innerHTML = element.Name+`<img src="/images/link.png" alt="">`
         parag.setAttribute("id",`${element.ID}`)
 
         //LLAMADA A NUESTRA API BACK
@@ -72,7 +72,6 @@ const getSymptomsList = (id) => {
   document.getElementById("armsdiv").onclick = (e) => {
       document.getElementById("armsdiv").classList.add("hidden")
       document.getElementById("armsdiv").classList.remove("menu")
-      +`<i class="fas fa-external-link-alt"></i>`+`<i class="fas fa-external-link-alt"></i>`
   }
   
 
@@ -85,7 +84,7 @@ const getSymptomsList = (id) => {
         fullList.data[0].expanded.forEach(element =>  {
           
         let parag = document.createElement("p")
-        parag.innerHTML = `${element.Name}<i class="fas fa-external-link-alt"></i>`
+        parag.innerHTML = element.Name+`<img src="/images/link.png" alt="">`
         parag.setAttribute("id",`${element.ID}`)
         parag.onclick = () => {
           getSymptomsList(element.ID)
@@ -117,7 +116,7 @@ const getSymptomsList = (id) => {
         fullList.data[0].expanded.forEach(element =>  {
           
         let parag = document.createElement("p")
-        parag.innerHTML = element.Name
+        parag.innerHTML = element.Name+`<img src="/images/link.png" alt="">`
         parag.setAttribute("id",`${element.ID}`)
         parag.onclick = () => {
           getSymptomsList(element.ID)          
@@ -149,7 +148,7 @@ const getSymptomsList = (id) => {
         fullList.data[0].expanded.forEach(element =>  {
         
           let parag = document.createElement("p")
-          parag.innerHTML = element.Name
+          parag.innerHTML = element.Name+`<img src="/images/link.png" alt="">`
           parag.setAttribute("id",`${element.ID}`)
           parag.onclick = () => {
             getSymptomsList(element.ID)          
@@ -179,7 +178,7 @@ const getSymptomsList = (id) => {
         fullList.data[0].expanded.forEach(element =>  {
           
         let parag = document.createElement("p")
-        parag.innerHTML = element.Name
+        parag.innerHTML = element.Name+`<img src="/images/link.png" alt="">`
         parag.setAttribute("id",`${element.ID}`)
         parag.onclick = () => {
           getSymptomsList(element.ID)          
@@ -210,7 +209,7 @@ document.getElementById("skin").onclick = (e) => {
         fullList.data[0].expanded.forEach(element =>  {
           
         let parag = document.createElement("p")
-        parag.innerHTML = element.Name
+        parag.innerHTML = element.Name+`<img src="/images/link.png" alt="">`
         parag.setAttribute("id",`${element.ID}`)
         parag.onclick = () => {
           getSymptomsList(element.ID)

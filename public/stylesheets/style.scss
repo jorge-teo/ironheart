@@ -1,17 +1,21 @@
 * {
-  font-family: 'Slabo 27px', serif;
+  // font-family: 'Slabo 27px', serif;
+  font-family: 'Belleza', sans-serif;
+
 }
 
 body {
   padding-top: 80px;
-  
+  background-image: linear-gradient(to left bottom, #bbf3ff, #a0e7fe, #88d9ff, #75cbff, #6abbff, #62acf8, #5d9df1, #5c8ee8, #4c7ed7, #3b6fc7, #2960b6, #1051a6);
+  min-height: 100vh;
   //font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: rgb(195,195,195);
+  color:white;
   margin: 0 10px;
 }
+
 
 #layer1  g{
   opacity: 0;
@@ -47,7 +51,7 @@ nav {
 }
 
 nav a {
-  color: rgb(10, 126, 126);
+  color: whie;
   font-weight: 900;
   margin: 0 15px;
   display: inline-block;
@@ -58,7 +62,10 @@ nav a {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(10, 126, 126, 0.3)
+  background-image: linear-gradient(to left bottom, #bbf3ff, #a0e7fe, #88d9ff, #75cbff, #6abbff, #62acf8, #5d9df1, #5c8ee8, #4c7ed7, #3b6fc7, #2960b6, #1051a6);
+  svg {
+    margin-top: 100px;
+  }
 }
 
 .hero h1 {
@@ -67,16 +74,26 @@ nav a {
   left: 38vw;
 }
 
-
+.logincontainer {
+  display: inline-block;
+}
 
 .login, .signup {
-  margin-left:  15%;
+  float: left;
+  margin-left:  10%;
   font-size: 1.2em;
+  width: 30%;
+  select {
+    margin: 10px;
+  }
+  button {
+    margin: 10px;
+  }
 }
 
 .login label,.signup label {
-  display: flex;
   margin: 10px 0;
+  
 }
 
 .signup{
@@ -84,12 +101,13 @@ nav a {
 }
 
 .login input,.signup input {
+  display: flex;
   width: 30vw;
-  display: inline-block;
+  margin: 10px;
 }
 
 .symptoms-container {
-			margin-top: 100px
+      margin-top: 100px
 }
 
 #heart {
@@ -105,6 +123,10 @@ li {
   padding: 5px 20px;
 }
 
+.profile {
+  font-size: 1.2em;
+}
+
 .bodyContainer {
   display: flex;
 }
@@ -113,6 +135,7 @@ li {
   display: flex;
   text-align: center;
   align-items: center;
+  height: 80vh;
 }
 
 .body {
@@ -156,12 +179,16 @@ li {
   text-align: center;
   width: 200px;
   background-color: whitesmoke;
+    p {
+      width: 100px;
+      margin: auto;
+    }
 }
 
 .arms {
   position: absolute;
   left: 0%;
-  top: 0%;
+  top: 30%;
   transition: all 1s;
 }
 
