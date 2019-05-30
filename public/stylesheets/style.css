@@ -5,14 +5,14 @@ body {
   padding-top: 80px; }
 
 a {
-  color: #00B7FF;
+  color: #c3c3c3;
   margin: 0 10px; }
 
-#layer1 {
-  opacity: 1;
+#layer1 g {
+  opacity: 0;
   transition: opacity .5s; }
 
-#layer1 .done {
+#layer1.done g {
   opacity: 1; }
 
 #map {
@@ -70,15 +70,35 @@ nav a {
 .symptoms-container {
   margin-top: 100px; }
 
+#heart {
+  margin-left: 10px; }
+
+ul {
+  list-style: none;
+  text-align: left; }
+
+li {
+  padding: 5px 20px; }
+
+.bodyContainer {
+  display: flex; }
+
+.bodySection {
+  display: flex;
+  text-align: center;
+  align-items: center; }
+
 .body {
+  margin: 20px 15vw; }
+
+.bodyImg {
   position: relative;
-  margin: 20px 15vw;
   width: 512px;
   height: 512px;
-  display: flex;
   align-items: center; }
 
 #instructions p {
+  margin-left: 100px;
   width: 400px; }
 
 .bodyImg {
@@ -88,11 +108,6 @@ nav a {
 .dot {
   width: 30px;
   height: auto; }
-
-.arm {
-  position: absolute;
-  left: 35%;
-  top: 38%; }
 
 .hidden {
   opacity: 0;
@@ -110,8 +125,8 @@ nav a {
 
 .arms {
   position: absolute;
-  left: -5%;
-  top: 34%;
+  left: 0%;
+  top: 0%;
   transition: all 1s; }
 
 .abdomen {

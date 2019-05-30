@@ -22,10 +22,12 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/details', (req, res) => {
-  User.findByIdAndUpdate({_id:req.user._id}, {$push: {history: {name: req.body.diagnosis, date: new Date() }}}, {new: true})
+  console.log(req.body, "REEEEEEEEEEEEEQ BODYYYYYYYYYYYY")
+  const date = new Date()
+  const dateStr = date.toDateString()
+  User.findByIdAndUpdate({_id:req.user._id}, {$push: {history: {name: req.body.diagnostic, date: dateStr  }}}, {new: true})
     .then(user => {
-      console.log(user)
-
+      res.redirect("/profile")
     })
     .catch()
 
