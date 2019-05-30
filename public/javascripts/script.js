@@ -72,7 +72,7 @@ const getSymptomsList = (id) => {
   document.getElementById("armsdiv").onclick = (e) => {
       document.getElementById("armsdiv").classList.add("hidden")
       document.getElementById("armsdiv").classList.remove("menu")
-
+      +`<i class="fas fa-external-link-alt"></i>`+`<i class="fas fa-external-link-alt"></i>`
   }
   
 
@@ -85,7 +85,7 @@ const getSymptomsList = (id) => {
         fullList.data[0].expanded.forEach(element =>  {
           
         let parag = document.createElement("p")
-        parag.innerHTML = element.Name
+        parag.innerHTML = `${element.Name}<i class="fas fa-external-link-alt"></i>`
         parag.setAttribute("id",`${element.ID}`)
         parag.onclick = () => {
           getSymptomsList(element.ID)

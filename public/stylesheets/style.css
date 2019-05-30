@@ -28,12 +28,15 @@ nav {
   width: 100vw;
   background: #464646;
   display: flex;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  text-transform: uppercase; }
 
 .shadow {
   box-shadow: 100 100px black; }
 
 nav a {
+  color: #0a7e7e;
+  font-weight: 900;
   margin: 0 15px;
   display: inline-block;
   margin: auto 0; }
@@ -48,9 +51,6 @@ nav a {
   position: absolute;
   top: 40vh;
   left: 38vw; }
-
-.hero a {
-  color: black; }
 
 .login, .signup {
   margin-left: 15%;
@@ -89,7 +89,8 @@ li {
   align-items: center; }
 
 .body {
-  margin: 20px 15vw; }
+  margin: 20px 5vw;
+  position: relative; }
 
 .bodyImg {
   position: relative;

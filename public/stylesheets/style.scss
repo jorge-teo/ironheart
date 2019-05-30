@@ -38,6 +38,7 @@ nav {
   background: rgb(70, 70, 70);
   display: flex;
   justify-content: space-evenly;
+  text-transform: uppercase;
 }
 
 .shadow {
@@ -46,6 +47,8 @@ nav {
 }
 
 nav a {
+  color: rgb(10, 126, 126);
+  font-weight: 900;
   margin: 0 15px;
   display: inline-block;
   margin: auto 0;
@@ -64,10 +67,7 @@ nav a {
   left: 38vw;
 }
 
-.hero a {
-  color: black;
 
-}
 
 .login, .signup {
   margin-left:  15%;
@@ -116,7 +116,8 @@ li {
 }
 
 .body {
-  margin: 20px 15vw;
+  margin: 20px 5vw;
+  position: relative;
 }
 
 .bodyImg {
