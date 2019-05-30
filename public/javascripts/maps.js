@@ -94,11 +94,19 @@ window.onload = () => {
     position: octubre,
     title: 'Hospital 12 de Octubre'
   })
-  new google.maps.Marker({
+ const getafeMarker = new google.maps.Marker({
     map: myMap,
     position: getafe,
     title: 'Hospital Universitario de Getafe'
   })
+
+  const infoWindow = new google.maps.InfoWindow({
+    content: "Hola"
+  });
+
+
+  infoWindow.open(myMap, getafeMarker); // Hacer que ésta función se active con un on click
+
  }
 
 
@@ -156,82 +164,82 @@ window.onload = () => {
 
 
 // Rutas
-function initMap() {
+// function initMap() {
 
-  const directionsService = new google.maps.DirectionsService
-  const directionsDisplay = new google.maps.DirectionsRenderer
+//   const directionsService = new google.maps.DirectionsService
+//   const directionsDisplay = new google.maps.DirectionsRenderer
 
-  const ironHackMadrid = { lat: 40.3922589, lng: -3.6985873 }
-  const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
-
-
-  const myMap = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center: ironHackMadrid
-  })
-
-  directionsDisplay.setMap(myMap)
-
-  calculateAndDisplay(directionsService, directionsDisplay, ironHackMadrid, ironhackBCN)
-}
+//   const ironHackMadrid = { lat: 40.3922589, lng: -3.6985873 }
+//   const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
 
 
-const calculateAndDisplay = (directionsService, directionsDisplay, orig, dest) => {
+//   const myMap = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 14,
+//     center: ironHackMadrid
+//   })
 
-  directionsService.route({
-    origin: orig,
-    destination: dest,
-    travelMode: google.maps.TravelMode['DRIVING']
-  }, (finalRoute, status) => {
-    status === 'OK' ? directionsDisplay.setDirections(finalRoute) : console.log("Error:", status)
-  })
-}
+//   directionsDisplay.setMap(myMap)
+
+//   calculateAndDisplay(directionsService, directionsDisplay, ironHackMadrid, ironhackBCN)
+// }
 
 
+// const calculateAndDisplay = (directionsService, directionsDisplay, orig, dest) => {
+
+//   directionsService.route({
+//     origin: orig,
+//     destination: dest,
+//     travelMode: google.maps.TravelMode['DRIVING']
+//   }, (finalRoute, status) => {
+//     status === 'OK' ? directionsDisplay.setDirections(finalRoute) : console.log("Error:", status)
+//   })
+// }
 
 
 
 
 
 
-// Geocoder
-
-function initMap() {
-
-  const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
-
-  const map = new google.maps.Map(
-    document.getElementById('map'),
-    {
-      center: ironhackBCN,
-      zoom: 10
-    }
-  )
 
 
-  const geocoder = new google.maps.Geocoder();
+// // Geocoder
 
-  geocodeAddress(geocoder, map)
+// function initMap() {
 
-}
+//   const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
 
-function geocodeAddress(geocoder, resultsMap) {
+//   const map = new google.maps.Map(
+//     document.getElementById('map'),
+//     {
+//       center: ironhackBCN,
+//       zoom: 10
+//     }
+//   )
 
-  let address = document.getElementById('address').value
 
-  geocoder.geocode({ 'address': address }, function (results, status) {
+//   const geocoder = new google.maps.Geocoder();
 
-    console.log(results)
+//   geocodeAddress(geocoder, map)
 
-    if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location)
-      new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      })
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
+// }
+
+// function geocodeAddress(geocoder, resultsMap) {
+
+//   let address = document.getElementById('address').value
+
+//   geocoder.geocode({ 'address': address }, function (results, status) {
+
+//     console.log(results)
+
+//     if (status === 'OK') {
+//       resultsMap.setCenter(results[0].geometry.location)
+//       new google.maps.Marker({
+//         map: resultsMap,
+//         position: results[0].geometry.location
+//       })
+//     } else {
+//       alert('Geocode was not successful for the following reason: ' + status);
+//     }
+//   });
+// }
 
