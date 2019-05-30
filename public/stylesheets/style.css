@@ -2,6 +2,44 @@
   font-family: 'Slabo 27px', serif; }
 
 body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff; }
+
+.heart-svg {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  font-size: 15em;
+  margin: 25px auto;
+  width: 100%; }
+
+#top,
+#bottom {
+  color: #555; }
+
+#middle {
+  stroke: red;
+  color: transparent;
+  stroke-width: 1;
+  animation: draw 3.5s linear infinite reverse, fill 3.5s linear infinite forwards; }
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 500; } }
+
+@keyframes fill {
+  70% {
+    color: transparent; }
+  100% {
+    color: red; } }
+
+body {
   padding-top: 80px; }
 
 a {
