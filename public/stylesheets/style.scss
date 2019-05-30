@@ -4,6 +4,41 @@
 
 }
 
+
+
+.heart-svg {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  font-size: 15em;
+  margin: 25px auto;
+  width: 100%;
+}
+#top,
+#bottom {
+  color: #555;
+}
+#middle {
+  stroke: red;
+	color: transparent;
+  stroke-width: 1;
+  animation: draw 3.5s linear infinite reverse,
+		         fill 3.5s linear infinite forwards;
+}
+
+@keyframes draw {
+	from {stroke-dashoffset: 0;}
+  to {stroke-dashoffset: 500;}
+}
+
+@keyframes fill {
+	70% {color: transparent;}
+	100% {color: red;}
+}
+
+
+
 body {
   padding-top: 80px;
   background-image: linear-gradient(to left bottom, #bbf3ff, #a0e7fe, #88d9ff, #75cbff, #6abbff, #62acf8, #5d9df1, #5c8ee8, #4c7ed7, #3b6fc7, #2960b6, #1051a6);
@@ -141,6 +176,10 @@ li {
 .body {
   margin: 20px 5vw;
   position: relative;
+  // background-size: 100%;
+  // background-position: 50% 50%;
+  // background-repeat: no-repeat;
+  // background-image: url(../images/diagnostic-background.jpg);
 }
 
 .bodyImg {
