@@ -1,5 +1,8 @@
 window.onload = () => {
 
+  const hospitals_btn = document.getElementById("hospitals_btn")
+  const address = document.getElementById("address")
+
   const origin = { lat: 40.437101, lng: -3.6956612 }
   const sanCarlos = { lat: 40.440698, lng: -3.719922 }
   const laLuz = { lat: 40.444849, lng: -3.713821 }
@@ -24,88 +27,119 @@ window.onload = () => {
       zoom: 10
     }
   ) 
+
+  const markers = [
   new google.maps.Marker({
     map: myMap,
     position: origin,
     title: 'Hospital La Milagrosa'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: sanCarlos,
     title: 'Hospital Clínico San Carlos'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: laLuz,
     title: 'Hospital La Luz'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: cruzRoja,
     title: 'Hospital Central de la Cruz Roja San José y Santa Adela'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: Ruber,
     title: 'Hospital Ruber Internacional'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: laMoraleja,
     title: 'Hospital Sanitas La Moraleja'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: infantaSofía,
     title: 'Hospital Infanta Sofía'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: elCasar,
     title: 'Centro de Salud de El Casar'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: laPrincesa,
     title: 'Hospital de La Princesa'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: américa,
     title: 'Hospital Vithas Nuestra Señora de América'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: príncipeAsturias,
     title: 'Hospital Universitario Príncipe de Asturias'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: vírgenTorre,
     title: 'Hospital Virgen de la Torre'
-  })
+  }),
   new google.maps.Marker({
     map: myMap,
     position: centralDefensa,
     title: 'Hospital Central de la Defensa Gómez Ulla'
-  })
+  }),
   new google.maps.Marker({
-    map: myMap,
-    position: octubre,
-    title: 'Hospital 12 de Octubre'
-  })
- const getafeMarker = new google.maps.Marker({
-    map: myMap,
-    position: getafe,
-    title: 'Hospital Universitario de Getafe'
-  })
+      map: myMap,
+      position: octubre,
+      title: 'Hospital 12 de Octubre'
+    }),
+  new google.maps.Marker({
+      map: myMap,
+      position: getafe,
+      title: 'Hospital Universitario de Getafe'
+    })
+]
 
-  const infoWindow = new google.maps.InfoWindow({
-    content: "Hola"
-  });
+  hospitals_btn.onclick = () => {
+    let foundMarker = markers.filter(marker => {
+      return marker.title.includes(address.value)
+    })
+
+    if(foundMarker[0]) {
+
+      let infoWindow = new google.maps.InfoWindow({
+        content: foundMarker[0].title.toString()
+      })
 
 
-  infoWindow.open(myMap, getafeMarker); // Hacer que ésta función se active con un on click
+      // let testMarker = new google.maps.Marker({
+      //   map: myMap,
+      //   position: getafe,
+      //   title: 'Hospital Universitario de Getafe'
+      // })
+
+      // console.log(testMarker, foundMarker)
+
+      // let infoGetafe = new google.maps.InfoWindow({
+      //   content: foundMarker[0].title
+      // })
+
+      // infoGetafe.open(myMap, testMarker)
+      infoWindow.open(myMap, foundMarker[0])
+
+
+    }
+
+  }
+
+  // 
+  // infoCentralDefensa.open(myMap, getafeMarker); // Hacer que ésta función se active con un on click
 
  }
 
