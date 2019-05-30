@@ -10,9 +10,9 @@
 <h5>Suggested Treatment</h5>
 <p>{{data.TreatmentDescription}}</p>
 
-<form action="https://res.cloudinary.com/ambdev/image/upload/v1559240635/heroheart/heart_ymmhkn.png" method="POST">
+<form action="/diagnostic/details" method="POST">
 <p> Is this diagnostic correct?</p>
-<button id="favouriteButton" name="diagnostic" value="{{data.Name}}"> Add it to your medical history!</button><img id="heart" src="/images/heart.png" alt="heart icon">
+<button id="favouriteButton" name="diagnostic" value="{{data.Name}}"> Add it to your medical history!</button><img id="heart" src="https://res.cloudinary.com/ambdev/image/upload/v1559240635/heroheart/heart_ymmhkn.png" alt="heart icon">
 </form>
 
 </section>
