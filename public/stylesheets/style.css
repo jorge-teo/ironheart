@@ -1,12 +1,5 @@
 * {
-  font-family: 'Slabo 27px', serif; }
-
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #fff; }
+  font-family: 'Belleza', sans-serif; }
 
 .heart-svg {
   display: inline-block;
@@ -40,10 +33,12 @@ body {
     color: red; } }
 
 body {
-  padding-top: 80px; }
+  padding-top: 80px;
+  background-image: linear-gradient(to left bottom, #bbf3ff, #a0e7fe, #88d9ff, #75cbff, #6abbff, #62acf8, #5d9df1, #5c8ee8, #4c7ed7, #3b6fc7, #2960b6, #1051a6);
+  min-height: 100vh; }
 
 a {
-  color: #c3c3c3;
+  color: white;
   margin: 0 10px; }
 
 #layer1 g {
@@ -73,7 +68,7 @@ nav {
   box-shadow: 100 100px black; }
 
 nav a {
-  color: #0a7e7e;
+  color: whie;
   font-weight: 900;
   margin: 0 15px;
   display: inline-block;
@@ -83,27 +78,38 @@ nav a {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(10, 126, 126, 0.3); }
+  background-image: linear-gradient(to left bottom, #bbf3ff, #a0e7fe, #88d9ff, #75cbff, #6abbff, #62acf8, #5d9df1, #5c8ee8, #4c7ed7, #3b6fc7, #2960b6, #1051a6); }
+  .hero svg {
+    margin-top: 100px; }
 
 .hero h1 {
   position: absolute;
   top: 40vh;
   left: 38vw; }
 
+.logincontainer {
+  display: inline-block; }
+
 .login, .signup {
-  margin-left: 15%;
-  font-size: 1.2em; }
+  float: left;
+  margin-left: 10%;
+  font-size: 1.2em;
+  width: 30%; }
+  .login select, .signup select {
+    margin: 10px; }
+  .login button, .signup button {
+    margin: 10px; }
 
 .login label, .signup label {
-  display: flex;
   margin: 10px 0; }
 
 .signup {
   font-size: 1.2em; }
 
 .login input, .signup input {
+  display: flex;
   width: 30vw;
-  display: inline-block; }
+  margin: 10px; }
 
 .symptoms-container {
   margin-top: 100px; }
@@ -118,13 +124,17 @@ ul {
 li {
   padding: 5px 20px; }
 
+.profile {
+  font-size: 1.2em; }
+
 .bodyContainer {
   display: flex; }
 
 .bodySection {
   display: flex;
   text-align: center;
-  align-items: center; }
+  align-items: center;
+  height: 80vh; }
 
 .body {
   margin: 20px 5vw;
@@ -161,11 +171,14 @@ li {
   text-align: center;
   width: 200px;
   background-color: whitesmoke; }
+  .menu p {
+    width: 100px;
+    margin: auto; }
 
 .arms {
   position: absolute;
   left: 0%;
-  top: 0%;
+  top: 30%;
   transition: all 1s; }
 
 .abdomen {

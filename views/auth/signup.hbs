@@ -1,17 +1,18 @@
-<div class="signup">
+<section id="signup" class="signup">
 
 <h2>Signup</h2>
 
 <p>Welcome to IronHeart</p>
 <p>First, we need some basic information about you in order to improve our diagnosis.</p>
 
+
 <form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label> 
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <label for="username"></label> 
+  <input id="username" type="text" name="username" placeholder="Username">
 
   
 
-  <label for="password">Password</label> 
+  <label for="password"></label> 
   <input id="password" type="password" name="password" placeholder="Your password">
   
   {{#if message }}
@@ -20,16 +21,16 @@
 
   
 
-  <label for="gender">Gender</label>  
+  <label for="gender"></label>  
   <select name="gender" id="gender">
-    <option value="male">Male</option>
+    <option  value="male">Male</option>
     <option value="female">Female</option>
   </select>
 
   
 
-  <label for="year_of_birth">Year of birth</label>  
-  <input type="text" name="year_of_birth">
+  <label for="year_of_birth"></label>  
+  <input type="text" name="year_of_birth" placeholder="Year of birth">
 
   
 
@@ -40,4 +41,4 @@
     <a href="/auth/login">Login</a>
   </p>
 </form>
-</div>
+</section>

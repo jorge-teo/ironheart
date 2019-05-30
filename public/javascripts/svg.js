@@ -1,7 +1,12 @@
-window.onload = ()  => {
-  const Vivus = require("vivus")
+document.onload() = () => {
+const Vivus = require("vivus")
 
-  new Vivus('caduceus', { duration: 200 }, () => document.getElementById("caduceus").style.opacity = 1)
+
+  new Vivus('my-svg', {
+    type: 'delayed', 
+    duration: 200,
+    animTimingFunction: Vivus.EASE
+  })
 
 
 }
