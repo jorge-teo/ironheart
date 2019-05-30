@@ -1,11 +1,12 @@
 
 const mongoose = require("mongoose");
 const Symptoms = require("../models/Symptoms.models");
+require('dotenv').config();
 
 
 
 mongoose
-  .connect('mongodb://localhost/ironheart', {useNewUrlParser: true})
+  .connect(`${process.env.DB}`, {useNewUrlParser: true})
   .then(x => {
   
   
