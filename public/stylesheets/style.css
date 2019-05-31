@@ -3,7 +3,7 @@
   font-size: 1.1em; }
 
 button {
-  margin-left: 20%;
+  margin-left: 4%;
   border: 1px solid #C2CBF4;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -59,7 +59,13 @@ body {
 
 a {
   color: white;
-  margin: 0 10px; }
+  margin: 0 10px;
+  transition: all 100ms; }
+
+a:hover {
+  color: white;
+  text-shadow: 0px 1px  whitesmoke;
+  text-decoration: none; }
 
 #layer1 g {
   opacity: 0;
@@ -179,11 +185,11 @@ li {
   display: flex; }
 
 .bodySection {
-  margin-left: 20%;
+  margin-left: 10%;
   display: flex;
   text-align: center;
   align-items: center;
-  height: 80vh;
+  min-height: 80vh;
   width: 40vw; }
 
 .body {
@@ -198,8 +204,12 @@ li {
   align-items: center; }
 
 #instructions p {
-  margin-left: 100px;
-  width: 400px; }
+  margin-left: 1px;
+  width: 1000px; }
+
+#instructions ul {
+  font-size: 0.9em;
+  margin-left: 140px; }
 
 .dot {
   width: 30px;
@@ -211,6 +221,8 @@ li {
   text-align: center;
   width: 200px;
   background-color: whitesmoke; }
+  .hidden p {
+    font-size: 0.9em; }
 
 .menu {
   opacity: 100;
@@ -219,6 +231,7 @@ li {
   width: 200px;
   background-color: whitesmoke; }
   .menu p {
+    font-size: 0.9em;
     width: 100px;
     margin: auto; }
 

@@ -18,7 +18,7 @@ router.get('/', ensureLoggedIn("/auth/login"),(req, res, next)=> {
 
 router.post("/", (req, res, next) => {
   
-        const URI = `https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[${Object.values(req.body)}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
+        const URI = `https://healthservice.priaid.ch/diagnosis?symptoms=[${Object.values(req.body)}]&gender=${req.user.gender}&year_of_birth=${req.user.year_of_birth}&token=${token}&format=json&language=en-gb`
         console.log(URI)
           axios.get(URI)
             .then(response => res.render('diagnostic', {data: response.data}))

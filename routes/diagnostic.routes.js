@@ -7,7 +7,7 @@ require("dotenv").config()
 const token = process.env.TOKEN
 
 router.get('/:id', (req, res) => {
-  const URI = `https://sandbox-healthservice.priaid.ch/issues/${req.params.id}/info?token=${token}&format=json&language=en-gb`
+  const URI = `https://healthservice.priaid.ch/issues/${req.params.id}/info?token=${token}&format=json&language=en-gb`
     
     axios.get(URI)
       .then(response => {
@@ -22,7 +22,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/details', (req, res) => {
-  console.log(req.body, "REEEEEEEEEEEEEQ BODYYYYYYYYYYYY")
   const date = new Date()
   const dateStr = date.toDateString()
   User.findByIdAndUpdate({_id:req.user._id}, {$push: {history: {name: req.body.diagnostic, date: dateStr  }}}, {new: true})

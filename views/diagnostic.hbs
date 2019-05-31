@@ -1,13 +1,18 @@
 <section class="body">
+
+  <div class="row">
 {{#if data}}
 {{#each data}}
+
+<div class="col-md-6">
   <h3>Diagnostic: <a href="/diagnostic/{{Issue.ID}}">{{Issue.Name}}</a></h3>
   <p>Likelihood of an accurate diagnosis: {{Issue.Accuracy}}%</p>
-
+</div>
 {{/each}}
 {{else}}
 
   <p>No diagnostic</p>
 
 {{/if}}
+</div>
 </section>
