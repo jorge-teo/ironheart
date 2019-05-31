@@ -135,6 +135,7 @@ window.onload = () => {
       return marker.title.includes(address.value)
     })
     if(foundMarker[0]) {
+      console.log(foundMarker)
       let infoWindow = new google.maps.InfoWindow({
         content: foundMarker[0].title.toString()
       })
