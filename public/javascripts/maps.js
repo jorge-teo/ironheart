@@ -1,8 +1,6 @@
 window.onload = () => {
-
   const hospitals_btn = document.getElementById("hospitals_btn")
   const address = document.getElementById("address")
-
   const origin = { lat: 40.437101, lng: -3.6956612 }
   const sanCarlos = { lat: 40.440698, lng: -3.719922 }
   const laLuz = { lat: 40.444849, lng: -3.713821 }
@@ -18,8 +16,9 @@ window.onload = () => {
   const centralDefensa = { lat: 40.389652, lng: -3.746289}
   const octubre = { lat: 40.377014, lng: -3.699061}
   const getafe = { lat: 40.313446, lng: -3.699061}
-
-
+  const ironHackMadrid = {lat: 40.393349, lng: -3.698181}
+  const directionsService = new google.maps.DirectionsService();
+  const directionsDisplay = new google.maps.DirectionsRenderer();
   const myMap = new google.maps.Map(                // 2 argumentos: selector, opciones
     document.getElementById('map'),
     {
@@ -27,7 +26,20 @@ window.onload = () => {
       zoom: 10
     }
   ) 
-
+  directionsDisplay.setMap(myMap);
+  // function calcRoute() {
+  //   var request = {
+  //     origin: ironHackMadrid,
+  //     destination: getafe,
+  //     travelMode: 'DRIVING'
+  //   };
+  //   directionsService.route(request, function (result, status) {
+  //     if (status == 'OK') {
+  //       directionsDisplay.setDirections(result);
+  //     }
+  //   });
+  // }
+  //calcRoute();
   const markers = [
   new google.maps.Marker({
     map: myMap,
@@ -105,56 +117,46 @@ window.onload = () => {
       title: 'Hospital Universitario de Getafe'
     })
 ]
-
   hospitals_btn.onclick = () => {
     let foundMarker = markers.filter(marker => {
+      function calcRoute() {
+        var request = {
+          origin: ironHackMadrid,
+          destination: marker.position,
+          travelMode: 'DRIVING'
+        };
+        directionsService.route(request, function (result, status) {
+          if (status == 'OK') {
+            directionsDisplay.setDirections(result);
+          }
+        });
+      }
+      calcRoute();
       return marker.title.includes(address.value)
     })
-
     if(foundMarker[0]) {
-
       let infoWindow = new google.maps.InfoWindow({
         content: foundMarker[0].title.toString()
       })
-
-
       // let testMarker = new google.maps.Marker({
       //   map: myMap,
       //   position: getafe,
       //   title: 'Hospital Universitario de Getafe'
       // })
-
       // console.log(testMarker, foundMarker)
-
       // let infoGetafe = new google.maps.InfoWindow({
       //   content: foundMarker[0].title
       // })
-
       // infoGetafe.open(myMap, testMarker)
       infoWindow.open(myMap, foundMarker[0])
-
-
     }
-
   }
-
   // 
   // infoCentralDefensa.open(myMap, getafeMarker); // Hacer que ésta función se active con un on click
-
  }
-
-
-
-
-
-
-
 // function initMap() {
-
 //   if (navigator.geolocation) {
-
 //     const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
-
 //     const myMap = new google.maps.Map(
 //       document.getElementById('map'),
 //       {
@@ -162,64 +164,39 @@ window.onload = () => {
 //         zoom: 10
 //       }
 //     )
-
 //     navigator.geolocation.getCurrentPosition(           // argumentos: callback de success, callback de error, objeto de opciones
 //       position => {
-
 //         const myLocation = {
 //           lat: position.coords.latitude,
 //           lng: position.coords.longitude
 //         }
-
 //         myMap.setCenter(myLocation)
-
 //         new google.maps.Marker({
 //           position: myLocation,
 //           title: 'Tú estás ahora aquí',
 //           map: myMap
 //         })
-
 //       },
 //       error => console.log('Todo mal', error)
 //     )
-
-
 //   } else {
 //     console.log("Tu navegador carece de geolocalización (qué fuerte)")
 //   }
 // }
-
-
-
-
-
-
-
-
-
 // Rutas
 // function initMap() {
-
 //   const directionsService = new google.maps.DirectionsService
 //   const directionsDisplay = new google.maps.DirectionsRenderer
-
 //   const ironHackMadrid = { lat: 40.3922589, lng: -3.6985873 }
 //   const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
-
-
 //   const myMap = new google.maps.Map(document.getElementById('map'), {
 //     zoom: 14,
 //     center: ironHackMadrid
 //   })
-
 //   directionsDisplay.setMap(myMap)
-
 //   calculateAndDisplay(directionsService, directionsDisplay, ironHackMadrid, ironhackBCN)
 // }
-
-
 // const calculateAndDisplay = (directionsService, directionsDisplay, orig, dest) => {
-
 //   directionsService.route({
 //     origin: orig,
 //     destination: dest,
@@ -228,20 +205,9 @@ window.onload = () => {
 //     status === 'OK' ? directionsDisplay.setDirections(finalRoute) : console.log("Error:", status)
 //   })
 // }
-
-
-
-
-
-
-
-
 // // Geocoder
-
 // function initMap() {
-
 //   const ironhackBCN = { lat: 41.3977381, lng: 2.190471916 }
-
 //   const map = new google.maps.Map(
 //     document.getElementById('map'),
 //     {
@@ -249,22 +215,13 @@ window.onload = () => {
 //       zoom: 10
 //     }
 //   )
-
-
 //   const geocoder = new google.maps.Geocoder();
-
 //   geocodeAddress(geocoder, map)
-
 // }
-
 // function geocodeAddress(geocoder, resultsMap) {
-
 //   let address = document.getElementById('address').value
-
 //   geocoder.geocode({ 'address': address }, function (results, status) {
-
 //     console.log(results)
-
 //     if (status === 'OK') {
 //       resultsMap.setCenter(results[0].geometry.location)
 //       new google.maps.Marker({
@@ -276,4 +233,3 @@ window.onload = () => {
 //     }
 //   });
 // }
-
