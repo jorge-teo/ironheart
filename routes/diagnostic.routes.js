@@ -7,7 +7,7 @@ require("dotenv").config()
 const token = process.env.TOKEN
 
 router.get('/:id', (req, res) => {
-  const URI = `https://healthservice.priaid.ch/issues/${req.params.id}/info?token=${token}&format=json&language=en-gb`
+  const URI = `https://sandbox-healthservice.priaid.ch/issues/${req.params.id}/info?token=${token}&format=json&language=en-gb`
     
     axios.get(URI)
       .then(response => {
